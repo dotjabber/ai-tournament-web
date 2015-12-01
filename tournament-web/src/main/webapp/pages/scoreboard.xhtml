@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Wyniki</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true" data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true" data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/development?faces-redirect=true" data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/application?faces-redirect=true" data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li class="active">
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true" data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true" data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>Wyniki</h2>
+                    <div class="about-section">
+                        <div class="about-grid">
+                            <h3>Najnowsze wyniki turniejów</h3>
+                            <p>
+                                Poniżej znadują się najnowsze wyniki turnieju. Dodatkowo każdy z uczestników został poinformowany drogą mailową
+                                o wyniku swojego zawodnika. Zwycięzcom gratulujemy i zapraszamy do dalszej rywalizacji.
+                            </p>
+
+                            <ui:repeat value="#{scoreboardBean.gameNames}" var="gameName">
+                                <h3>#{gameName}</h3>
+                                <p>
+                                    <p:dataTable var="result" value="#{scoreboardBean.getResults(gameName)}"
+                                                 rowIndexVar="rowIndex" rendered="#{gameName != ''}">
+                                        <p:column headerText="Ranking">
+                                            <h:outputText value="#{rowIndex + 1}" />
+                                        </p:column>
+
+                                        <p:column headerText="Nazwa">
+                                            <h:outputText value="#{result.name}" />
+                                        </p:column>
+
+                                        <p:column headerText="Email">
+                                            <h:outputText value="#{result.email}" />
+                                        </p:column>
+
+                                        <p:column headerText="Data rezultatu">
+                                            <h:outputText value="#{result.scoreDate}" />
+                                        </p:column>
+
+                                        <p:column headerText="Wygrane">
+                                            <h:outputText value="#{result.wins}" />
+                                        </p:column>
+
+                                        <p:column headerText="Przegrane">
+                                            <h:outputText value="#{result.loses}" />
+                                        </p:column>
+
+                                        <p:column headerText="Remisy">
+                                            <h:outputText value="#{result.ties}" />
+                                        </p:column>
+
+                                        <p:column headerText="Wynik">
+                                            <h:outputText value="#{result.score}" />
+                                        </p:column>
+                                    </p:dataTable>
+                                </p>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

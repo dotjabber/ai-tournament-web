@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <!--<datasource jndi-name="java:jboss/datasources/tournamentDS" pool-name="tournamentDS" enabled="true" use-java-context="true">-->
+        <!--<connection-url>jdbc:postgresql://lil-devel.opi.org.pl:5432/uksw?search_path=uksw_dev</connection-url>-->
+        <!--<driver>postgresql</driver>-->
+        <!--<security>-->
+            <!--<user-name>uksw</user-name>-->
+            <!--<password>uksw123</password>-->
+        <!--</security>-->
+        <!--<validation>-->
+            <!--<check-valid-connection-sql>SET SEARCH_PATH TO uksw_dev</check-valid-connection-sql>-->
+            <!--<validate-on-match>false</validate-on-match>-->
+            <!--<background-validation>false</background-validation>-->
+        <!--</validation>-->
+    <!--</datasource>-->
+
+    <persistence-unit name="priv.dotjabber.tournament">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/tournamentDS</jta-data-source>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="hibernate.connection.isolation" value="2"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="jboss.entity.manager.jndi.name" value="java:/EntityManagers/tournamentEM"/>
+            <property name="jboss.entity.manager.factory.jndi.name" value="java:/EntityManagersFactory/tournamentEMF"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

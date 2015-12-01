@@ -1,0 +1,72 @@
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.3.3"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.3 http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.3.xsd">
+
+    <!-- anonymous mappings -->
+    <url-mapping>
+        <pattern value="/pages/index" />
+        <view-id value="/pages/index.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/application" />
+        <view-id value="/pages/application.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/contact" />
+        <view-id value="/pages/contact.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/development" />
+        <view-id value="/pages/development.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/scoreboard" />
+        <view-id value="/pages/scoreboard.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/news" />
+        <view-id value="/pages/news.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/topics/player-gomoku" />
+        <view-id value="/pages/topics/player-gomoku.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/topics/player-tanks" />
+        <view-id value="/pages/topics/player-tanks.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/topics/preparation" />
+        <view-id value="/pages/topics/preparation.xhtml" />
+    </url-mapping>
+
+    <!-- errors -->
+    <url-mapping>
+        <pattern value="/pages/error/403" />
+        <view-id value="/pages/error/403.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/error/404" />
+        <view-id value="/pages/error/404.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/error/503" />
+        <view-id value="/pages/error/503.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/pages/error/401" />
+        <view-id value="/pages/error/401.xhtml" />
+    </url-mapping>
+
+</pretty-config>

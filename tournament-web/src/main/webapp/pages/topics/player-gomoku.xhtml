@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Zasady</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true" data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true" data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li class="active">
+                                <h:commandLink action="/pages/development?faces-redirect=true" data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/application?faces-redirect=true" data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true" data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true" data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>Robot development</h2>
+                    <div class="about-section">
+                        <div class="about-grid">
+                            <h3>Żeby napisać swój własny program walczący, należy:</h3>
+                           <ul>
+                               <li>
+                                   Ściągnąć najnowszą bibliotekę(jar) AITournament. Zawsze aktualna, znajduje się
+                                   <h:commandLink value="tutaj">
+                                       <p:fileDownload value="#{downloadBean.getLibrary('ai-tournament.jar')}"/>
+                                   </h:commandLink>
+                               </li>
+                               <li>
+                                   Dołączyć bibliotekę do projektu.<br />
+                                   <center>
+                                       <p:graphicImage value="/resources/images/prtscr/01.png"/>
+                                   </center>
+                               </li>
+                               <li>
+                                   Wybrać grę do implementacji. W ściągniętej bibliotece znajdują się klasy, które obsługują grę "gomoku" i "tanks".
+                               </li>
+                               <li>
+                                   W przypadku implementacji gomoku, klasą która należy zaimplementować, jest <i>GomokuPlayer</i>.
+                                   Przykładowa implementacja tej klasy wygląda następująca:
+
+                                   <pre>
+package com.example;
+
+import java.awt.Point;
+import java.util.Random;
+
+import priv.dotjabber.tournament.gomoku.model.GomokuModel;
+import priv.dotjabber.tournament.gomoku.player.GomokuPlayer;
+
+public class GomokuRandomPlayer extends GomokuPlayer {
+    private static boolean option;
+
+    private Random rand;
+    private String name;
+
+    public GomokuRandomPlayer() {
+        rand = new Random();
+
+        if(option) {
+            name = "Marusia";
+            option = !option;
+
+        } else {
+            name = "Lidka";
+            option = !option;
+        }
+    }
+
+    @Override
+    public Point getMove(GomokuModel model) {
+        int width = model.getData().length;
+        int height = model.getData()[0].length;
+
+        int i = rand.nextInt(width);
+        int j = rand.nextInt(height);
+
+        while(model.getData()[i][j] != null) {
+            i = rand.nextInt(width);
+            j = rand.nextInt(height);
+        }
+
+        return new Point(i, j);
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getEmail() {
+        return "dotjabber@gmail.com";
+    }
+}
+                                   </pre>
+                               </li>
+                               <li>
+                                   Gotowe źródła (wraz z uzupełnionym mailem, nazwą zawodnika oraz implementacją) wgrać do systemu
+                                   w zakładce 'zgłoszenie'.
+                               </li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

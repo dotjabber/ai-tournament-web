@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/layout.xhtml">
+
+    <ui:define name="title">Strona główna</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner">
+                <div class="banner-top">
+                    <div class="logo">
+                        <h:commandLink action="/pages/index?faces-redirect=true">
+                            <p:graphicImage library="images" name="logo.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="banner-info">
+                        <h1>Czy podołasz zadaniu?</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index?faces-redirect=true">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="sed">
+                <div class="container">
+                    <div class="sed1">
+                        <div class="col-md-4 sed-top">
+                            <div class="sed-left">
+                                <div class="sed-con">
+                                    <i class="han" />
+                                </div>
+                                <div class="sed-data">
+                                    <h3>Aktualności</h3>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <p>Zawsze najświeższe informacje dotyczące projektu AITournament</p>
+                            <h:commandLink action="/pages/news?faces-redirect=true" styleClass="read">Więcej ...</h:commandLink>
+                        </div>
+                        <div class="col-md-4 sed-top">
+                            <div class="sed-left">
+                                <div class="sed-con">
+                                    <i class="han" />
+                                </div>
+                                <div class="sed-data">
+                                    <h3>Development</h3>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <p>Napisz swojego robota w kilku prostych krokach.</p>
+                            <h:commandLink action="/pages/development?faces-redirect=true" styleClass="read">Więcej ...</h:commandLink>
+                        </div>
+                        <div class="col-md-4 sed-top">
+                            <div class="sed-left">
+                                <div class="sed-con">
+                                    <i class="han" />
+                                </div>
+                                <div class="sed-data">
+                                    <h3>Zgłoszenie</h3>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <p>Dodaj swojego robota, bez rejestracji, bez dodatkowych kroków, po prostu dodaj. </p>
+                            <h:commandLink action="/pages/application?faces-redirect=true" styleClass="read">Więcej ...</h:commandLink>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="sed2">
+                        <div class="col-md-4 sed-top">
+                            <div class="sed-left">
+                                <div class="sed-con">
+                                    <i class="han" />
+                                </div>
+                                <div class="sed-data">
+                                    <h3>Wyniki</h3>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <p>Sprawdź najnowsze wyniki turnieju robotów.</p>
+                            <h:commandLink action="/pages/scoreboard?faces-redirect=true" styleClass="read">Więcej ...</h:commandLink>
+                        </div>
+                        <div class="col-md-4 sed-top">
+                            <div class="sed-left">
+                                <div class="sed-con">
+                                    <i class="han" />
+                                </div>
+                                <div class="sed-data">
+                                    <h3>Kontakt</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <p>Masz pomysł, uwagę, wniosek formalny? Napisz do nas :)</p>
+                            <h:commandLink action="/pages/contact?faces-redirect=true" styleClass="read">Więcej ...</h:commandLink>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

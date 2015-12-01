@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Zasady</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive"/>
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true"
+                                               data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true"
+                                               data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li class="active">
+                                <h:commandLink action="/pages/development?faces-redirect=true"
+                                               data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/application?faces-redirect=true"
+                                               data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true"
+                                               data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true"
+                                               data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>Development</h2>
+
+                    <div class="about-section">
+                        <div class="about-grid">
+                            <h3>Przygotowanie środowiska</h3>
+                            <p>
+                                Aby przygotować środowisko do pracy nad zawodnikiem, który w przyszłosci zwycięży
+                                w konkursie AITournament należy wykonać następujące kroki.
+                            </p>
+                            <p>
+                                Ściągnąć najnowszą bibliotekę(jar) AITournament. Zawsze aktualna, znajduje się
+                                <h:commandLink value="tutaj">
+                                    <p:fileDownload value="#{downloadBean.getLibrary('ai-tournament.jar')}"/>
+                                </h:commandLink>
+                            </p>
+                            <p>
+                                Dołączyć bibliotekę do projektu, wraz z bibliotekami JAVY 1.8<br/>
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/01.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Utworzyć strukturę projektu, która będzie zawierać plik
+                                <i>aitournament.properties</i>
+                                w pakiecie <i>priv.dotjabber.tournament</i> oraz plik <i>Main</i> lub dowolny inny,
+                                z którego uruchamiana zostanie aplikacja.
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/02.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Plik <i>aitournament.properties</i> powinien zawierać w sobie wszystkie zmienne potrzebne
+                                do fukcjonowania gry. Zmienne opisują każdą grę z osobna, jak i główny framework:
+                            </p>
+                            <ul>
+                                <li>aitournament.selectedGame=tanks # wybrana gra, ktora zostanie uruchomiona.</li>
+                                <li>aitournament.stepLimit=500 # ilość krokow w jakiej rozstrzygany jest zwycięzca/przegrany/remis (ustawienia arbitra).</li>
+                                <li>aitournament.recordedGames=.\\logs # miejsce gdzie są składowane logi.</li>
+                                <li>aitournament.projectDir=.\\ # ścieżka do projektu.</li>
+                                <li>aitournament.binaryDir=bin\\ #scieżka do binarek projektu (potrzebne do wyszukiwania klas graczy).</li>
+
+                                <li>tanks.gameName=Tanks! # nazwa gry - czołgi</li>
+                                <li>tanks.factoryClass=priv.dotjabber.tournament.tanks.control.TanksFactory # klasa budująca wszystko (nie zmieniać!)</li>
+                                <li>tanks.playersPackage=com.example # pakiet w którym znajdują się klasy gracza.</li>
+                                <li>tanks.obstacleFactor=0.17 # dodatkowy parametr okreslajacy prawdopodobienstwo ustawienia przeszkody w generowanej planszy.</li>
+
+                                <li>gomoku.gameName=Gomoku! # nazwa gry - gomoku</li>
+                                <li>gomoku.factoryClass=priv.dotjabber.tournament.gomoku.control.GomokuFactory# klasa budująca wszystko (nie zmieniać!)</li>
+                                <li>gomoku.playersPackage=com.example# pakiet w którym znajdują się klasy gracza.</li>
+                            </ul>
+                            <center>
+                                <p:graphicImage value="/resources/images/prtscr/03.png"/>
+                            </center>
+                            <p>
+                                Aby uruchomić aplikację, należy dopisać następujący kawałek kodu, następnie uruchomić go:
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/04.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                W przypadku gry 'gomoku', po uruchomieniu użytkownik zobaczy nastepujący interfejs.
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/05.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Aby sprawdzić czy projekt jest poprawnie skonfigurowany, należy stworzyć klasę - robota - zawodnika
+                                którego najprostsza forma wyglądać będzie tak:
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/06.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Po ponownym skompilowaniu i uruchomieniu projektu, można dodać swojego robota do gry, wybierając <i>game</i>
+                                a następnie <i>choose player one</i> oraz <i>choose player two</i> z menu.
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/07.png"/>
+                                    <p:graphicImage value="/resources/images/prtscr/08.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Po wybraniu zawodników można rozpocząć grę. Po rozpoczęciu gry, zawodnicy zaczną w sposób losowy
+                                umieszczać swoje pionki na planszy. W momencie, w którym jeden z nich ułoży pięć pionków w jednej
+                                linii, gra jest przerywana i ogłaszany jest zwycięzca.
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/09.png"/>
+                                    <p:graphicImage value="/resources/images/prtscr/10.png"/>
+                                </center>
+                            </p>
+                            <p>
+                                Budowa i uruchamianie zawodnika do gry <i>tanks</i> następuje w sposób analogiczny. Zmienia się jednynie
+                                klasa, którą należy zaimplementować. W przypadku gry w czołgi (tanks), zawodnicy mają do dyspozycji więcej
+                                typów ruchów, celem natomiast jest zestrzelenie przeciwnika. Dodatkowo plansza do gry w czołgi zawiera
+                                przeszkody terenowe, które zawodnicy muszą omijać w trakcie poruszania się po planszy.
+                                <center>
+                                    <p:graphicImage value="/resources/images/prtscr/11.png"/>
+                                    <p:graphicImage value="/resources/images/prtscr/12.png"/>
+                                </center>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

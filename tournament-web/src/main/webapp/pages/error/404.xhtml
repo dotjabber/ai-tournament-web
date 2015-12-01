@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">404</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true" data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true" data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/development?faces-redirect=true" data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/application?faces-redirect=true" data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true" data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true" data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>404</h2>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

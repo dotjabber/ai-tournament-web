@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Zgłoszenie</ui:define>
+    <ui:define name="content">
+        <h:form enctype="multipart/form-data">
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true" data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true" data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/development?faces-redirect=true" data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li class="active">
+                                <h:commandLink action="/pages/application?faces-redirect=true" data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true" data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true" data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>Zgłoszenie</h2>
+                    <div class="about-section">
+                        <div class="about-grid">
+                            <h3>Zanim dodasz</h3>
+                            <p>
+                                Zanim dodasz swojego zawodnika, pamiętaj o zasadach panujących w serwisie:
+                            </p>
+                            <ul>
+                                <li>celem konkursu jest napisanie najlepszego robota, który pokona inne roboty.</li>
+                                <li>nie ma ograniczeń jeśli chodzi o zastosowane rozwiązanie, może być to zwykły algorytm, lub zaawansowana metoda uczenia maszynowego.</li>
+                                <li>w swoim kodzie możemy używać wszystkich możliwych bibliotek. Może się tak zdarzyć, że serwer nie będzie posiadać jakiejś biblioteki
+                                dlatego prosimy o umieszczenie nazw libów w komentarzu klasy.</li>
+                                <li>kod który przesyłamy jest weryfikowany przez administratorów, staramy się pisać kod czysty.</li>
+                                <li>nie próbujemy hackować serwera, nie psocimy się. Wszelkie nadużycia tego punktu będą skutkowały banem.</li>
+                            </ul>
+
+                            <h3>Dodaj swojego zawodnika</h3>
+                            <p>
+                                Aby dodać swojego zawodnika, dodaj plik java, który będzie zawierać jego implementację.
+                                Zostanie on automatycznie dodany oraz, po weryfikacji, skompilowany do pliku binarnego.
+                                Zawodnik będzie brać udział automatycznie w każdym kolejnym turnieju.
+                            </p>
+                            <p:fileUpload fileUploadListener="#{applicationBean.uploadFile}" rendered="#{applicationBean.playerData == null}"
+                                          mode="advanced" dragDropSupport="false" update="@form" multiple="false" fileLimit="1"/>
+                            <p>
+                                <p:panelGrid id="application-panel" rendered="#{applicationBean.playerData != null}"
+                                             columns="2" layout="grid">
+
+                                    <c:forEach items="#{applicationBean.playerData}" var="entry">
+                                        <h:outputText value="#{entry.key}:" />
+                                        <h:outputText value="#{entry.value}" />
+                                    </c:forEach>
+                                </p:panelGrid>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/layout.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Zasady</ui:define>
+    <ui:define name="content">
+        <h:form>
+            <div class="banner-bottom">
+                <div class="container">
+                    <div class="logo1">
+                        <h:commandLink action="/pages/index">
+                            <p:graphicImage library="images" name="logo1.png" styleClass="img-responsive" />
+                        </h:commandLink>
+                    </div>
+                    <div class="head-nav">
+                        <span class="menu"> </span>
+                        <ul class="cl-effect-15">
+                            <li>
+                                <h:commandLink action="/pages/index?faces-redirect=true" data-hover="STRONA GŁÓWNA">STRONA GŁÓWNA</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/news?faces-redirect=true" data-hover="AKTUALNOŚCI">AKTUALNOŚCI</h:commandLink>
+                            </li>
+                            <li class="active">
+                                <h:commandLink action="/pages/development?faces-redirect=true" data-hover="DEV">DEV</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/application?faces-redirect=true" data-hover="ZGŁOSZENIE">ZGŁOSZENIE</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/scoreboard?faces-redirect=true" data-hover="WYNIKI">WYNIKI</h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="/pages/contact?faces-redirect=true" data-hover="KONTAKT">KONTAKT</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="about-content">
+                    <h2>Development</h2>
+                    <div class="about-section">
+                        <div class="about-grid">
+                            <h3>Czyli co zrobić, żeby się nie narobić, a żeby działało</h3>
+                            <p>Jeżeli zajrzałeś to tego działu, to może oznaczać jedną z dwóch rzeczy:</p>
+                            <ul>
+                                <li>
+                                    jesteś developerem, który chciałby napisać swojego własnego robota.
+                                </li>
+                                <li>
+                                    jesteś developerem, który chciałby napisać swoją własną grę.
+                                </li>
+                            </ul>
+
+                            <p>Poniżej przedstawiamy kilka prostych tutoriali które ułatwią Wam posługiwanie się frameworkiem:</p>
+                            <ul>
+                                <li>
+                                    <h:commandLink action="/pages/topics/preparation" data-hover="konfiguracja środowiska">konfiguracja środowiska</h:commandLink>
+                                </li>
+                                <li>
+                                    <h:commandLink action="/pages/topics/player-gomoku" data-hover="implementacja gracza - gomoku">implementacja gracza - gomoku</h:commandLink>
+                                </li>
+                                <li>
+                                    <h:commandLink action="/pages/topics/player-tanks" data-hover="implementacja gracza - tanks">implementacja gracza - tanks</h:commandLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

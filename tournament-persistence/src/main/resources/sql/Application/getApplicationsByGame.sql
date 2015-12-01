@@ -1,0 +1,1 @@
+select * from application where game_name = ':gameName'
